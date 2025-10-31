@@ -14,7 +14,7 @@ public class Lottos {
     public static Lottos generateLottos(int count) {
         List<Lotto> generatedLottos = new ArrayList<>();
         while (count-- > 0) {
-            generatedLottos.add(new Lotto(LottoGenerator.generate()));
+            generatedLottos.add(new Lotto(LottoNumberGenerator.generate()));
         }
         return new Lottos(generatedLottos);
     }

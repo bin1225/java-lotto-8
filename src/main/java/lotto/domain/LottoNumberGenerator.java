@@ -4,13 +4,13 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.HashSet;
 import java.util.List;
 
-public class LottoGenerator {
+public class LottoNumberGenerator {
 
     private static final int LOTTO_SIZE = 6;
     private static final int MIN = 1;
     private static final int MAX = 45;
 
-    private LottoGenerator() {
+    private LottoNumberGenerator() {
         throw new UnsupportedOperationException();
     }
 
