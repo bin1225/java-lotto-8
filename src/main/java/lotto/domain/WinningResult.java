@@ -20,6 +20,10 @@ public class WinningResult {
         return matchBonus;
     }
 
+    public Rank getRank() {
+        return rank;
+    }
+
     public int getWinningAmount() {
         return rank.getReward();
     }
