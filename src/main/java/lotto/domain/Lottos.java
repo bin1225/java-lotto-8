@@ -1,9 +1,13 @@
 package lotto.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Lottos {
+
+    private static final int MIN = 1;
+    private static final int MAX = 45;
 
     private final List<Lotto> lottos;
 
@@ -15,7 +19,7 @@ public class Lottos {
         List<Lotto> generatedLottos = new ArrayList<>();
         long count = calculateLottoCount(amount);
         while (count-- > 0) {
-            generatedLottos.add(new Lotto(LottoNumberGenerator.generate()));
+            generatedLottos.add(new Lotto(Randoms.pickUniqueNumbersInRange(MIN, MAX, Lotto.LOTTO_SIZE)));
         }
         return new Lottos(generatedLottos);
     }
