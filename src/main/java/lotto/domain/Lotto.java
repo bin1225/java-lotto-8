@@ -35,4 +35,17 @@ public class Lotto {
     public List<Integer> getNumbers() {
         return List.copyOf(numbers);
     }
+
+    public WinningResult getWinningResult(WinningNumber winningNumber) {
+        int matchCount = getMatchCount(winningNumber.numbers());
+        boolean matchBonus = numbers.contains(winningNumber.bonusNumber());
+
+        return new WinningResult(matchCount, matchBonus);
+    }
+
+    private int getMatchCount(List<Integer> winningNumbers) {
+        return (int) numbers.stream()
+                .filter(winningNumbers::contains)
+                .count();
+    }
 }
