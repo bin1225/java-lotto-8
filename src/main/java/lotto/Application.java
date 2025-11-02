@@ -1,7 +1,6 @@
 package lotto;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.List;
 import lotto.domain.Lottos;
 import lotto.domain.PurchaseAmount;
 import lotto.domain.TotalWinningResult;
@@ -42,8 +41,9 @@ public class Application {
     }
 
     private WinningNumber readWinningNumber() {
-        List<Integer> winningNumbers = InputHandler.retryUntilValid(InputView::readWinningNumbers);
-        int bonusNumber = InputHandler.retryUntilValid(InputView::readBonusNumber);
-        return new WinningNumber(winningNumbers, bonusNumber);
+        return new WinningNumber.Builder()
+                .setWinningNumbers(InputView.readWinningNumbers())
+                .setBonusNumber(InputView.readBonusNumber())
+                .build();
     }
 }
