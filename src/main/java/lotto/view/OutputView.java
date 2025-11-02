@@ -1,5 +1,7 @@
 package lotto.view;
 
+import static lotto.validator.ErrorMessage.UTILITY_CLASS_INSTANTIATION_NOT_ALLOWED;
+
 import java.util.List;
 import java.util.Map;
 import lotto.domain.Lotto;
@@ -17,7 +19,7 @@ public class OutputView {
     private static final String RATE_OF_RETURN_MESSAGE = "총 수익률은 %.1f%%입니다.\n";
 
     private OutputView() {
-        throw new UnsupportedOperationException();
+        throw new UnsupportedOperationException(UTILITY_CLASS_INSTANTIATION_NOT_ALLOWED.getMessage());
     }
 
     public static void printPurchasedLottos(Lottos lottos) {

@@ -1,11 +1,13 @@
 package lotto.validator;
 
+import static lotto.validator.ErrorMessage.UTILITY_CLASS_INSTANTIATION_NOT_ALLOWED;
+
 import lotto.domain.Lotto;
 
 public class PurchaseAmountValidator {
 
     private PurchaseAmountValidator() {
-        throw new UnsupportedOperationException();
+        throw new UnsupportedOperationException(UTILITY_CLASS_INSTANTIATION_NOT_ALLOWED.getMessage());
     }
 
     public static long validate(String input) {

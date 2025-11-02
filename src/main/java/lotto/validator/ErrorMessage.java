@@ -6,6 +6,7 @@ public enum ErrorMessage {
     //common
     EMPTY_INPUT("입력값이 비어있습니다."),
     INVALID_NUMBER("유효하지 않은 숫자입니다."),
+    UTILITY_CLASS_INSTANTIATION_NOT_ALLOWED("유틸리티 클래스는 인스턴스화할 수 없습니다."),
 
     //amount
     EMPTY_AMOUNT("금액을 입력해주세요."),

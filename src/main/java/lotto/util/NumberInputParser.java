@@ -3,11 +3,16 @@ package lotto.util;
 
 import static lotto.validator.ErrorMessage.EMPTY_INPUT;
 import static lotto.validator.ErrorMessage.INVALID_NUMBER;
+import static lotto.validator.ErrorMessage.UTILITY_CLASS_INSTANTIATION_NOT_ALLOWED;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class NumberInputParser {
+
+    private NumberInputParser() {
+        throw new UnsupportedOperationException(UTILITY_CLASS_INSTANTIATION_NOT_ALLOWED.getMessage());
+    }
 
     public static List<Integer> parseNumbers(String input, String delimiter) {
         validateEmpty(input);
