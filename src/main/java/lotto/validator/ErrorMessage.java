@@ -9,7 +9,6 @@ public enum ErrorMessage {
     UTILITY_CLASS_INSTANTIATION_NOT_ALLOWED("유틸리티 클래스는 인스턴스화할 수 없습니다."),
 
     //amount
-    EMPTY_AMOUNT("금액을 입력해주세요."),
     INVALID_UNIT("금액은 %d원 단위로 입력해주세요."),
     NEGATIVE_NUMBER("0보다 큰 값을 입력해주세요."),
     OUT_OF_RANGE("입력값이 허용 범위를 벗어났습니다. (%d ~ %d)"),

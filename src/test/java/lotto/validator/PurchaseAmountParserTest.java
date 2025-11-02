@@ -17,7 +17,7 @@ class PurchaseAmountParserTest {
         // when & then
         assertThatThrownBy(() -> PurchaseAmountParser.parse(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(ErrorMessage.EMPTY_AMOUNT.getMessage());
+                .hasMessage(ErrorMessage.EMPTY_INPUT.getMessage());
     }
 
     @ParameterizedTest
