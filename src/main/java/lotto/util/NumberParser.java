@@ -8,9 +8,9 @@ import static lotto.validator.ErrorMessage.UTILITY_CLASS_INSTANTIATION_NOT_ALLOW
 import java.util.Arrays;
 import java.util.List;
 
-public class NumberInputParser {
+public class NumberParser {
 
-    private NumberInputParser() {
+    private NumberParser() {
         throw new UnsupportedOperationException(UTILITY_CLASS_INSTANTIATION_NOT_ALLOWED.getMessage());
     }
 
