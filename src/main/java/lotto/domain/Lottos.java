@@ -12,7 +12,7 @@ public class Lottos {
         this.lottos = List.copyOf(generatedLottos);
     }
 
-    public static Lottos generateLottos(long amount) {
+    public static Lottos issue(long amount) {
         List<Lotto> generatedLottos = new ArrayList<>();
         long count = calculateLottoCount(amount);
         while (count-- > 0) {

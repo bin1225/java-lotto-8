@@ -18,7 +18,7 @@ class LottosTest {
     })
     void 구매금액에_맞는_개수의_로또를_반환한다(long amount, int expectedCount) {
         // when
-        Lottos lottos = Lottos.generateLottos(amount);
+        Lottos lottos = Lottos.issue(amount);
 
         // then
         assertThat(lottos.asList())
@@ -28,7 +28,7 @@ class LottosTest {
     @Test
     void 로또는_6개의_숫자로_구성된다() {
         //given
-        Lottos lottos = Lottos.generateLottos(Lotto.PRICE * 5);
+        Lottos lottos = Lottos.issue(Lotto.PRICE * 5);
 
         //when & then
         lottos.asList().forEach(lotto ->
@@ -39,7 +39,7 @@ class LottosTest {
     @Test
     void 로또는_1_에서_45_내의_숫자만_포함한다() {
         //given
-        Lottos lottos = Lottos.generateLottos(Lotto.PRICE * 5);
+        Lottos lottos = Lottos.issue(Lotto.PRICE * 5);
 
         //when & then
         lottos.asList().forEach(lotto ->

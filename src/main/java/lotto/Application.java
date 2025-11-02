@@ -24,7 +24,7 @@ public class Application {
         long purchaseAmount = InputHandler.retryUntilValid(InputView::readPurchaseAmount);
 
         //입력 금액에 따라 로또 발행 및 결과 출력
-        Lottos lottos = Lottos.generateLottos(purchaseAmount);
+        Lottos lottos = Lottos.issue(purchaseAmount);
         OutputView.printPurchasedLottos(lottos);
 
         //당첨 번호 및 보너스 번호 입력
