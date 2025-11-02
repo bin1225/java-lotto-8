@@ -7,11 +7,12 @@ import static lotto.validator.ErrorMessage.INVALID_NUMBER_RANGE;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.stream.Stream;
 
 public record WinningNumber(List<Integer> numbers, int bonusNumber) {
     public WinningNumber(List<Integer> numbers, int bonusNumber) {
         validateCount(numbers);
-        validateNumberInRange(numbers);
+        validateNumberInRange(numbers, bonusNumber);
         validateDuplicate(numbers, bonusNumber);
         this.numbers = List.copyOf(numbers);
         this.bonusNumber = bonusNumber;
@@ -24,13 +25,12 @@ public record WinningNumber(List<Integer> numbers, int bonusNumber) {
         }
     }
 
-    private static void validateNumberInRange(List<Integer> numbers) {
-        boolean hasOutOfRange = numbers.stream()
-                .anyMatch(num -> num < Lotto.MIN_NUMBER || num > Lotto.MAX_NUMBER);
-
-        if (hasOutOfRange) {
+    private static void validateNumberInRange(List<Integer> numbers, int bonusNumber) {
+        Stream<Integer> all = Stream.concat(numbers.stream(), Stream.of(bonusNumber));
+        if (all.anyMatch(n -> n < Lotto.MIN_NUMBER || n > Lotto.MAX_NUMBER)) {
             throw new IllegalArgumentException(
-                    INVALID_NUMBER_RANGE.getMessage(Lotto.MIN_NUMBER, Lotto.MAX_NUMBER));
+                    INVALID_NUMBER_RANGE.getMessage(Lotto.MIN_NUMBER, Lotto.MAX_NUMBER)
+            );
         }
     }
 
