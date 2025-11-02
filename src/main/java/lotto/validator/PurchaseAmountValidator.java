@@ -48,8 +48,8 @@ public class PurchaseAmountValidator {
     }
 
     private static void validateUnit(long amount) {
-        if (amount % Lotto.LOTTO_PRICE != 0) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_UNIT.getMessage(Lotto.LOTTO_PRICE));
+        if (amount % Lotto.PRICE != 0) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_UNIT.getMessage(Lotto.PRICE));
         }
     }
 }

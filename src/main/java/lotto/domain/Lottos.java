@@ -6,9 +6,6 @@ import java.util.List;
 
 public class Lottos {
 
-    private static final int MIN = 1;
-    private static final int MAX = 45;
-
     private final List<Lotto> lottos;
 
     private Lottos(List<Lotto> generatedLottos) {
@@ -19,13 +16,14 @@ public class Lottos {
         List<Lotto> generatedLottos = new ArrayList<>();
         long count = calculateLottoCount(amount);
         while (count-- > 0) {
-            generatedLottos.add(new Lotto(Randoms.pickUniqueNumbersInRange(MIN, MAX, Lotto.LOTTO_SIZE)));
+            generatedLottos.add(
+                    new Lotto(Randoms.pickUniqueNumbersInRange(Lotto.MIN_NUMBER, Lotto.MAX_NUMBER, Lotto.SIZE)));
         }
         return new Lottos(generatedLottos);
     }
 
     private static long calculateLottoCount(long amount) {
-        return amount / Lotto.LOTTO_PRICE;
+        return amount / Lotto.PRICE;
     }
 
     public List<Lotto> asList() {

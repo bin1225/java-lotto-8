@@ -58,7 +58,7 @@ class PurchaseAmountValidatorTest {
     void 금액이_로또_1개_가격_단위로_나누어지지_않으면_예외가_발생한다() {
         //given
         String input = "1500";
-        long unit = lotto.domain.Lotto.LOTTO_PRICE;
+        long unit = lotto.domain.Lotto.PRICE;
 
         //when & then
         assertThatThrownBy(() -> PurchaseAmountValidator.validate(input))

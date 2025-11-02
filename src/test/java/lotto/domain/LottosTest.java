@@ -28,7 +28,7 @@ class LottosTest {
     @Test
     void 로또는_6개의_숫자로_구성된다() {
         //given
-        Lottos lottos = Lottos.generateLottos(Lotto.LOTTO_PRICE * 5);
+        Lottos lottos = Lottos.generateLottos(Lotto.PRICE * 5);
 
         //when & then
         lottos.asList().forEach(lotto ->
@@ -39,7 +39,7 @@ class LottosTest {
     @Test
     void 로또는_1_에서_45_내의_숫자만_포함한다() {
         //given
-        Lottos lottos = Lottos.generateLottos(Lotto.LOTTO_PRICE * 5);
+        Lottos lottos = Lottos.generateLottos(Lotto.PRICE * 5);
 
         //when & then
         lottos.asList().forEach(lotto ->

@@ -5,8 +5,10 @@ import java.util.List;
 
 public class Lotto {
 
-    public static final int LOTTO_PRICE = 1000;
-    public static final int LOTTO_SIZE = 6;
+    public static final int PRICE = 1000;
+    public static final int SIZE = 6;
+    public static final int MIN_NUMBER = 1;
+    public static final int MAX_NUMBER = 45;
 
     private final List<Integer> numbers;
 
@@ -21,7 +23,7 @@ public class Lotto {
     }
 
     private void validateNumberCount(List<Integer> numbers) {
-        if (numbers.size() != LOTTO_SIZE) {
+        if (numbers.size() != SIZE) {
             throw new IllegalArgumentException("[ERROR] 로또 번호는 6개여야 합니다.");
         }
     }
