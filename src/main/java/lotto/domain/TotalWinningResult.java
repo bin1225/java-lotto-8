@@ -34,4 +34,8 @@ public class TotalWinningResult {
         double rate = (double) totalWinningAmount / amount * 100;
         return Math.round(rate * 100) / 100.0;
     }
+
+    public Map<Rank, Integer> getWinningStatistics() {
+        return winningStatistics;
+    }
 }
