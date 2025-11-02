@@ -30,8 +30,8 @@ class LottoTest {
         WinningResult result = lotto.getWinningResult(winningNumber);
 
         // then
-        assertThat(result.getMatchCount()).isEqualTo(3);
-        assertThat(result.isMatchBonus()).isFalse();
+        assertThat(result.matchCount()).isEqualTo(3);
+        assertThat(result.matchBonus()).isFalse();
     }
 
     @Test
@@ -44,8 +44,8 @@ class LottoTest {
         WinningResult result = lotto.getWinningResult(winningNumber);
 
         // then
-        assertThat(result.getMatchCount()).isEqualTo(4);
-        assertThat(result.isMatchBonus()).isTrue();
+        assertThat(result.matchCount()).isEqualTo(4);
+        assertThat(result.matchBonus()).isTrue();
     }
 
     @Test
@@ -58,7 +58,7 @@ class LottoTest {
         WinningResult result = lotto.getWinningResult(winningNumber);
 
         // then
-        assertThat(result.getMatchCount()).isZero();
-        assertThat(result.isMatchBonus()).isFalse();
+        assertThat(result.matchCount()).isZero();
+        assertThat(result.matchBonus()).isFalse();
     }
 }

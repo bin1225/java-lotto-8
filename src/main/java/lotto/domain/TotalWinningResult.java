@@ -19,7 +19,7 @@ public class TotalWinningResult {
         long totalWinningAmount = 0;
 
         for (WinningResult winningResult : winningResults) {
-            Rank rank = winningResult.getRank();
+            Rank rank = winningResult.rank();
             statistics.merge(rank, 1, Integer::sum);
             totalWinningAmount += rank.getReward();
         }

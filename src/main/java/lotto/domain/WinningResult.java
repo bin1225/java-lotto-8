@@ -1,27 +1,9 @@
 package lotto.domain;
 
-public class WinningResult {
-
-    private final int matchCount;
-    private final boolean matchBonus;
-    private final Rank rank;
+public record WinningResult(int matchCount, boolean matchBonus, Rank rank) {
 
     public WinningResult(int matchCount, boolean matchBonus) {
-        this.matchCount = matchCount;
-        this.matchBonus = matchBonus;
-        rank = Rank.of(matchCount, matchBonus);
-    }
-
-    public int getMatchCount() {
-        return matchCount;
-    }
-
-    public boolean isMatchBonus() {
-        return matchBonus;
-    }
-
-    public Rank getRank() {
-        return rank;
+        this(matchCount, matchBonus, Rank.of(matchCount, matchBonus));
     }
 
     public int getWinningAmount() {
