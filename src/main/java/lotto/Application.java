@@ -1,7 +1,43 @@
 package lotto;
 
+import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
+import lotto.domain.Lottos;
+import lotto.domain.TotalWinningResult;
+import lotto.domain.WinningNumber;
+import lotto.view.InputHandler;
+import lotto.view.InputView;
+import lotto.view.OutputView;
+
 public class Application {
+
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        try {
+            new Application().run();
+        } finally {
+            Console.close();
+        }
+    }
+
+    private void run() {
+        //구매 금액 입력
+        long purchaseAmount = InputHandler.retryUntilValid(InputView::readPurchaseAmount);
+
+        //입력 금액에 따라 로또 발행 및 결과 출력
+        Lottos lottos = Lottos.generateLottos(purchaseAmount);
+        OutputView.printPurchasedLottos(lottos);
+
+        //당첨 번호 및 보너스 번호 입력
+        WinningNumber winningNumber = readWinningNumber();
+
+        //통계 계산 및 출력
+        TotalWinningResult totalWinningResult = lottos.getTotalWinningResult(winningNumber);
+        OutputView.printTotalWinningResult(totalWinningResult, purchaseAmount);
+    }
+
+    private WinningNumber readWinningNumber() {
+        List<Integer> winningNumbers = InputHandler.retryUntilValid(InputView::readWinningNumbers);
+        int bonusNumber = InputHandler.retryUntilValid(InputView::readBonusNumber);
+        return new WinningNumber(winningNumbers, bonusNumber);
     }
 }
