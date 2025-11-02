@@ -32,9 +32,9 @@ public class Lottos {
         return lottos;
     }
 
-    public long getTotalWinningAmount(WinningNumber winningNumber) {
-        return lottos.stream()
-                .mapToLong(lotto -> lotto.getWinningResult(winningNumber).getWinningAmount())
-                .sum();
+    public TotalWinningResult getTotalWinningResult(WinningNumber winningNumber) {
+        List<WinningResult> winningResults = lottos.stream().map(lotto -> lotto.getWinningResult(winningNumber))
+                .toList();
+        return TotalWinningResult.from(winningResults);
     }
 }
