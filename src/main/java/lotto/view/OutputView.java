@@ -39,6 +39,10 @@ public class OutputView {
         printRateOfReturn(totalWinningResult, purchaseAmount);
     }
 
+    public static void printMessage(String message) {
+        System.out.println(message);
+    }
+
     private static void printWinningStatistics(TotalWinningResult totalWinningResult) {
         Map<Rank, Integer> stats = totalWinningResult.getWinningStatistics();
 

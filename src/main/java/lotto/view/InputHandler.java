@@ -20,7 +20,7 @@ public class InputHandler {
             try {
                 return inputAction.get();
             } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
+                OutputView.printMessage(e.getMessage());
             }
         }
     }
