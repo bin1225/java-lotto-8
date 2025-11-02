@@ -22,14 +22,14 @@ public class Application {
 
     private void run() {
         //구매 금액 입력
-        PurchaseAmount purchaseAmount = readPurchaseAmount();
+        PurchaseAmount purchaseAmount = InputHandler.retryUntilValid(this::readPurchaseAmount);
 
         //입력 금액에 따라 로또 발행 및 결과 출력
         Lottos lottos = Lottos.issue(purchaseAmount);
         OutputView.printPurchasedLottos(lottos);
 
         //당첨 번호 및 보너스 번호 입력
-        WinningNumber winningNumber = readWinningNumber();
+        WinningNumber winningNumber = InputHandler.retryUntilValid(this::readWinningNumber);
 
         //통계 계산 및 출력
         TotalWinningResult totalWinningResult = lottos.getTotalWinningResult(winningNumber);
@@ -37,7 +37,7 @@ public class Application {
     }
 
     private PurchaseAmount readPurchaseAmount() {
-        long purchaseAmount = InputHandler.retryUntilValid(InputView::readPurchaseAmount);
+        long purchaseAmount = InputView.readPurchaseAmount();
         return new PurchaseAmount(purchaseAmount);
     }
 
