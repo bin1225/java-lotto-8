@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public record WinningNumber(List<Integer> numbers, int bonusNumber) {
+
     public WinningNumber(List<Integer> numbers, int bonusNumber) {
         validateCount(numbers);
         validateNumberInRange(numbers, bonusNumber);

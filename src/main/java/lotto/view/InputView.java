@@ -34,6 +34,4 @@ public class InputView {
         String input = Console.readLine();
         return NumberParser.parseSingleInteger(input);
     }
-
-
 }
