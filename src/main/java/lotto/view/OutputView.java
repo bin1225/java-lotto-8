@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import lotto.domain.Lotto;
 import lotto.domain.Lottos;
+import lotto.domain.PurchaseAmount;
 import lotto.domain.Rank;
 import lotto.domain.TotalWinningResult;
 
@@ -30,7 +31,7 @@ public class OutputView {
         printNewLine();
     }
 
-    public static void printTotalWinningResult(TotalWinningResult totalWinningResult, long purchaseAmount) {
+    public static void printTotalWinningResult(TotalWinningResult totalWinningResult, PurchaseAmount purchaseAmount) {
         System.out.println(STATISTICS_HEADER);
         System.out.println(DIVIDER);
 
@@ -55,8 +56,8 @@ public class OutputView {
         }
     }
 
-    private static void printRateOfReturn(TotalWinningResult totalWinningResult, long purchaseAmount) {
-        double rate = totalWinningResult.getRateOfReturn(purchaseAmount);
+    private static void printRateOfReturn(TotalWinningResult totalWinningResult, PurchaseAmount purchaseAmount) {
+        double rate = totalWinningResult.getRateOfReturn(purchaseAmount.value());
         System.out.printf(RATE_OF_RETURN_MESSAGE, rate);
     }
 

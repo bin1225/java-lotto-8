@@ -3,6 +3,7 @@ package lotto;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import lotto.domain.Lottos;
+import lotto.domain.PurchaseAmount;
 import lotto.domain.TotalWinningResult;
 import lotto.domain.WinningNumber;
 import lotto.view.InputHandler;
@@ -21,7 +22,7 @@ public class Application {
 
     private void run() {
         //구매 금액 입력
-        long purchaseAmount = InputHandler.retryUntilValid(InputView::readPurchaseAmount);
+        PurchaseAmount purchaseAmount = readPurchaseAmount();
 
         //입력 금액에 따라 로또 발행 및 결과 출력
         Lottos lottos = Lottos.issue(purchaseAmount);
@@ -33,6 +34,11 @@ public class Application {
         //통계 계산 및 출력
         TotalWinningResult totalWinningResult = lottos.getTotalWinningResult(winningNumber);
         OutputView.printTotalWinningResult(totalWinningResult, purchaseAmount);
+    }
+
+    private PurchaseAmount readPurchaseAmount() {
+        long purchaseAmount = InputHandler.retryUntilValid(InputView::readPurchaseAmount);
+        return new PurchaseAmount(purchaseAmount);
     }
 
     private WinningNumber readWinningNumber() {

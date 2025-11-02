@@ -12,9 +12,9 @@ public class Lottos {
         this.lottos = List.copyOf(generatedLottos);
     }
 
-    public static Lottos issue(long amount) {
+    public static Lottos issue(PurchaseAmount purchaseAmount) {
         List<Lotto> generatedLottos = new ArrayList<>();
-        long count = calculateLottoCount(amount);
+        long count = calculateLottoCount(purchaseAmount.value());
         while (count-- > 0) {
             generatedLottos.add(
                     new Lotto(Randoms.pickUniqueNumbersInRange(Lotto.MIN_NUMBER, Lotto.MAX_NUMBER, Lotto.SIZE)));
