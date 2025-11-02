@@ -4,7 +4,6 @@ import static lotto.validator.ErrorMessage.UTILITY_CLASS_INSTANTIATION_NOT_ALLOW
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
-import lotto.util.PurchaseAmountParser;
 import lotto.util.NumberParser;
 
 public class InputView {
@@ -21,19 +20,19 @@ public class InputView {
     public static long readPurchaseAmount() {
         System.out.println(READ_PURCHASE_AMOUNT_MESSAGE);
         String input = Console.readLine();
-        return PurchaseAmountParser.parse(input);
+        return NumberParser.parseSingleLong(input);
     }
 
     public static List<Integer> readWinningNumbers() {
         System.out.println(READ_WINNING_NUMBER_MESSAGE);
         String input = Console.readLine();
-        return NumberParser.parseNumbers(input, DELIMITER);
+        return NumberParser.parseIntegers(input, DELIMITER);
     }
 
     public static int readBonusNumber() {
         System.out.println(READ_BONUS_NUMBER_MESSAGE);
         String input = Console.readLine();
-        return NumberParser.parseSingleNumber(input);
+        return NumberParser.parseSingleInteger(input);
     }
 
 

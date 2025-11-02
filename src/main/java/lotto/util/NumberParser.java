@@ -1,7 +1,6 @@
 package lotto.util;
 
 
-import static lotto.validator.ErrorMessage.INVALID_NUMBER;
 import static lotto.validator.ErrorMessage.UTILITY_CLASS_INSTANTIATION_NOT_ALLOWED;
 
 import java.util.Arrays;
@@ -14,15 +13,22 @@ public class NumberParser {
         throw new UnsupportedOperationException(UTILITY_CLASS_INSTANTIATION_NOT_ALLOWED.getMessage());
     }
 
-    public static List<Integer> parseNumbers(String input, String delimiter) {
+    public static List<Integer> parseIntegers(String input, String delimiter) {
         InputValidator.validateEmpty(input);
         return parseByDelimiter(input, delimiter);
     }
 
-    public static int parseSingleNumber(String input) {
+    public static int parseSingleInteger(String input) {
         InputValidator.validateEmpty(input);
         InputValidator.validateNumeric(input);
         return Integer.parseInt(input);
+    }
+
+    public static long parseSingleLong(String input) {
+        InputValidator.validateEmpty(input);
+        InputValidator.validateNumeric(input);
+        InputValidator.validateWithinLongRange(input);
+        return Long.parseLong(input);
     }
 
     private static List<Integer> parseByDelimiter(String input, String delimiter) {
