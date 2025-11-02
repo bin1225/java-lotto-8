@@ -30,7 +30,7 @@ public class TotalWinningResult {
     /**
      * 총 상금을 기준으로 수익률(%)을 계산하고, 소수점 둘째 자리에서 반올림하여 반환한다.
      */
-    public double getRateOfReturn(int amount) {
+    public double getRateOfReturn(long amount) {
         double rate = (double) totalWinningAmount / amount * 100;
         return Math.round(rate * 100) / 100.0;
     }
