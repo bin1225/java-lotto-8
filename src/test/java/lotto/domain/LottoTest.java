@@ -24,7 +24,10 @@ class LottoTest {
     void 당첨번호_3개_일치하고_보너스_불일치하면_WinningResult_반환한다() {
         // given
         Lotto lotto = new Lotto(List.of(1, 2, 3, 10, 20, 30));
-        WinningNumber winningNumber = new WinningNumber(List.of(1, 2, 3, 4, 5, 6), 7);
+        WinningNumber winningNumber = new WinningNumber.Builder()
+                .setWinningNumbers(List.of(1, 2, 3, 4, 5, 6))
+                .setBonusNumber(7)
+                .build();
 
         // when
         WinningResult result = lotto.getWinningResult(winningNumber);
@@ -38,7 +41,10 @@ class LottoTest {
     void 당첨번호_4개_일치하고_보너스_번호가_포함되면_WinningResult_반환한다() {
         // given
         Lotto lotto = new Lotto(List.of(1, 2, 3, 4, 7, 8));
-        WinningNumber winningNumber = new WinningNumber(List.of(1, 2, 3, 4, 5, 6), 7);
+        WinningNumber winningNumber = new WinningNumber.Builder()
+                .setWinningNumbers(List.of(1, 2, 3, 4, 5, 6))
+                .setBonusNumber(7)
+                .build();
 
         // when
         WinningResult result = lotto.getWinningResult(winningNumber);
@@ -52,7 +58,10 @@ class LottoTest {
     void 당첨번호가_하나도_일치하지_않으면_0개_일치와_false를_반환한다() {
         // given
         Lotto lotto = new Lotto(List.of(10, 20, 30, 40, 41, 42));
-        WinningNumber winningNumber = new WinningNumber(List.of(1, 2, 3, 4, 5, 6), 7);
+        WinningNumber winningNumber = new WinningNumber.Builder()
+                .setWinningNumbers(List.of(1, 2, 3, 4, 5, 6))
+                .setBonusNumber(7)
+                .build();
 
         // when
         WinningResult result = lotto.getWinningResult(winningNumber);

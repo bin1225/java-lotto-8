@@ -39,8 +39,8 @@ public class Lotto {
     }
 
     public WinningResult getWinningResult(WinningNumber winningNumber) {
-        int matchCount = getMatchCount(winningNumber.numbers());
-        boolean matchBonus = numbers.contains(winningNumber.bonusNumber());
+        int matchCount = getMatchCount(winningNumber.getNumbers());
+        boolean matchBonus = numbers.contains(winningNumber.getBonusNumber());
 
         return new WinningResult(matchCount, matchBonus);
     }

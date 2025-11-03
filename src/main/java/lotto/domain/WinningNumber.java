@@ -9,7 +9,16 @@ import java.util.HashSet;
 import java.util.List;
 import lotto.validator.ErrorMessage;
 
-public record WinningNumber(List<Integer> numbers, int bonusNumber) {
+public class WinningNumber {
+
+    private final List<Integer> numbers;
+    private final int bonusNumber;
+
+    private WinningNumber(List<Integer> numbers, int bonusNumber) {
+        this.numbers = numbers;
+        this.bonusNumber = bonusNumber;
+    }
+
 
     public static class Builder {
         private List<Integer> winningNumbers;
@@ -69,4 +78,11 @@ public record WinningNumber(List<Integer> numbers, int bonusNumber) {
         }
     }
 
+    public List<Integer> getNumbers() {
+        return numbers;
+    }
+
+    public int getBonusNumber() {
+        return bonusNumber;
+    }
 }

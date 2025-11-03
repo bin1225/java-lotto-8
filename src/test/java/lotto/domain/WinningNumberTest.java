@@ -19,11 +19,14 @@ class WinningNumberTest {
         int bonus = 7;
 
         // when
-        WinningNumber result = new WinningNumber(numbers, bonus);
+        WinningNumber result = new WinningNumber.Builder()
+                .setWinningNumbers(numbers)
+                .setBonusNumber(bonus)
+                .build();
 
         // then
-        assertThat(result.numbers()).containsExactly(1, 2, 3, 4, 5, 6);
-        assertThat(result.bonusNumber()).isEqualTo(7);
+        assertThat(result.getNumbers()).containsExactly(1, 2, 3, 4, 5, 6);
+        assertThat(result.getBonusNumber()).isEqualTo(7);
     }
 
     @ParameterizedTest
@@ -34,7 +37,10 @@ class WinningNumberTest {
         int bonus = 8;
 
         // when & then
-        assertThatThrownBy(() -> new WinningNumber(numbers, bonus))
+        assertThatThrownBy(() -> new WinningNumber.Builder()
+                .setWinningNumbers(numbers)
+                .setBonusNumber(bonus)
+                .build())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ErrorMessage.INVALID_NUMBER_COUNT.getMessage(Lotto.SIZE));
     }
@@ -46,7 +52,10 @@ class WinningNumberTest {
         int bonus = 7;
 
         // when & then
-        assertThatThrownBy(() -> new WinningNumber(numbers, bonus))
+        assertThatThrownBy(() -> new WinningNumber.Builder()
+                .setWinningNumbers(numbers)
+                .setBonusNumber(bonus)
+                .build())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ErrorMessage.INVALID_NUMBER_RANGE.getMessage(Lotto.MIN_NUMBER, Lotto.MAX_NUMBER));
     }
@@ -58,7 +67,10 @@ class WinningNumberTest {
         int bonus = 6;
 
         // when & then
-        assertThatThrownBy(() -> new WinningNumber(numbers, bonus))
+        assertThatThrownBy(() -> new WinningNumber.Builder()
+                .setWinningNumbers(numbers)
+                .setBonusNumber(bonus)
+                .build())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ErrorMessage.DUPLICATE_WINNING_NUMBER.getMessage());
     }
@@ -70,7 +82,10 @@ class WinningNumberTest {
         int bonus = 6;
 
         // when & then
-        assertThatThrownBy(() -> new WinningNumber(numbers, bonus))
+        assertThatThrownBy(() -> new WinningNumber.Builder()
+                .setWinningNumbers(numbers)
+                .setBonusNumber(bonus)
+                .build())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ErrorMessage.DUPLICATE_BONUS_NUMBER.getMessage());
     }
