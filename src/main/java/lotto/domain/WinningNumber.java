@@ -19,7 +19,6 @@ public class WinningNumber {
         this.bonusNumber = bonusNumber;
     }
 
-
     public static class Builder {
         private List<Integer> winningNumbers;
         private Integer bonusNumber;
