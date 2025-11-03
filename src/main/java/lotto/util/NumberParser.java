@@ -21,6 +21,7 @@ public class NumberParser {
     public static int parseSingleInteger(String input) {
         InputValidator.validateEmpty(input);
         InputValidator.validateNumeric(input);
+        InputValidator.validateWithinIntegerRange(input);
         return Integer.parseInt(input);
     }
 
@@ -38,6 +39,7 @@ public class NumberParser {
                 .filter(s -> !s.isEmpty())
                 .map(s -> {
                     InputValidator.validateNumeric(s);
+                    InputValidator.validateWithinIntegerRange(s);
                     return Integer.parseInt(s);
                 })
                 .toList();

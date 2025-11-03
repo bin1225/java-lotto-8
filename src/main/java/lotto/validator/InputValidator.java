@@ -20,6 +20,15 @@ public class InputValidator {
         }
     }
 
+    public static void validateWithinIntegerRange(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(
+                    ErrorMessage.OUT_OF_RANGE.getMessage(Integer.MIN_VALUE, Integer.MAX_VALUE));
+        }
+    }
+
     public static void validateWithinLongRange(String input) {
         try {
             Long.parseLong(input);
