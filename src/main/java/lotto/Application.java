@@ -28,7 +28,7 @@ public class Application {
         OutputView.printPurchasedLottos(lottos);
 
         //당첨 번호 및 보너스 번호 입력
-        WinningNumber winningNumber = InputHandler.retryUntilValid(this::readWinningNumber);
+        WinningNumber winningNumber = readWinningNumber();
 
         //통계 계산 및 출력
         TotalWinningResult totalWinningResult = lottos.getTotalWinningResult(winningNumber);
@@ -41,9 +41,18 @@ public class Application {
     }
 
     private WinningNumber readWinningNumber() {
-        return new WinningNumber.Builder()
-                .setWinningNumbers(InputView.readWinningNumbers())
-                .setBonusNumber(InputView.readBonusNumber())
-                .build();
+        WinningNumber.Builder builder = new WinningNumber.Builder();
+
+        // 당첨번호 입력
+        InputHandler.retryUntilValid(
+                InputView::readWinningNumbers,
+                builder::setWinningNumbers);
+
+        // 보너스번호 입력
+        InputHandler.retryUntilValid(
+                InputView::readBonusNumber,
+                builder::setBonusNumber);
+
+        return builder.build();
     }
 }
