@@ -38,34 +38,35 @@ public record WinningNumber(List<Integer> numbers, int bonusNumber) {
         }
     }
 
-    private static void validateWinningNumbers(List<Integer> numbers) {
-        if (numbers.size() != Lotto.SIZE) {
-            throw new IllegalArgumentException(
-                    INVALID_NUMBER_COUNT.getMessage(Lotto.SIZE)
-            );
-        }
-
-        if (numbers.stream().anyMatch(n -> n < Lotto.MIN_NUMBER || n > Lotto.MAX_NUMBER)) {
-            throw new IllegalArgumentException(
-                    INVALID_NUMBER_RANGE.getMessage(Lotto.MIN_NUMBER, Lotto.MAX_NUMBER)
-            );
-        }
-
-        HashSet<Integer> uniqueNumbers = new HashSet<>(numbers);
-        if (uniqueNumbers.size() != numbers.size()) {
-            throw new IllegalArgumentException(DUPLICATE_WINNING_NUMBER.getMessage());
-        }
+    public static void validateWinningNumbers(List<Integer> numbers) {
+        validateSize(numbers);
+        numbers.forEach(WinningNumber::validateNumberRange);
+        validateNoDuplicate(numbers);
     }
 
     private static void validateBonusNumber(int bonusNumber, List<Integer> winningNumbers) {
-        if (bonusNumber < Lotto.MIN_NUMBER || bonusNumber > Lotto.MAX_NUMBER) {
-            throw new IllegalArgumentException(
-                    INVALID_NUMBER_RANGE.getMessage(Lotto.MIN_NUMBER, Lotto.MAX_NUMBER)
-            );
-        }
-
+        validateNumberRange(bonusNumber);
         if (winningNumbers.contains(bonusNumber)) {
             throw new IllegalArgumentException(DUPLICATE_BONUS_NUMBER.getMessage());
         }
     }
+
+    private static void validateSize(List<Integer> numbers) {
+        if (numbers.size() != Lotto.SIZE) {
+            throw new IllegalArgumentException(INVALID_NUMBER_COUNT.getMessage(Lotto.SIZE));
+        }
+    }
+
+    private static void validateNoDuplicate(List<Integer> numbers) {
+        if (new HashSet<>(numbers).size() != numbers.size()) {
+            throw new IllegalArgumentException(DUPLICATE_WINNING_NUMBER.getMessage());
+        }
+    }
+
+    private static void validateNumberRange(int number) {
+        if (number < Lotto.MIN_NUMBER || number > Lotto.MAX_NUMBER) {
+            throw new IllegalArgumentException(INVALID_NUMBER_RANGE.getMessage(Lotto.MIN_NUMBER, Lotto.MAX_NUMBER));
+        }
+    }
+
 }
