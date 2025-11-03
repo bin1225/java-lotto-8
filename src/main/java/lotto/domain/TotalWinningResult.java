@@ -7,7 +7,7 @@ import java.util.Map;
 public class TotalWinningResult {
 
     private final Map<Rank, Integer> winningStatistics;
-    private long totalWinningAmount;
+    private final long totalWinningAmount;
 
     private TotalWinningResult(Map<Rank, Integer> winningStatistics, long totalWinningAmount) {
         this.winningStatistics = winningStatistics;
