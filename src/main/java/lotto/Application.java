@@ -5,7 +5,7 @@ import lotto.domain.Lottos;
 import lotto.domain.PurchaseAmount;
 import lotto.domain.TotalWinningResult;
 import lotto.domain.WinningNumber;
-import lotto.view.InputHandler;
+import lotto.util.InputRetryHandler;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
@@ -21,7 +21,7 @@ public class Application {
 
     private void run() {
         //구매 금액 입력
-        PurchaseAmount purchaseAmount = InputHandler.retryUntilValid(this::readPurchaseAmount);
+        PurchaseAmount purchaseAmount = InputRetryHandler.retryUntilValid(this::readPurchaseAmount);
 
         //입력 금액에 따라 로또 발행 및 결과 출력
         Lottos lottos = Lottos.issue(purchaseAmount);
@@ -44,12 +44,12 @@ public class Application {
         WinningNumber.Builder builder = new WinningNumber.Builder();
 
         // 당첨번호 입력
-        InputHandler.retryUntilValid(
+        InputRetryHandler.retryUntilValid(
                 InputView::readWinningNumbers,
                 builder::setWinningNumbers);
 
         // 보너스번호 입력
-        InputHandler.retryUntilValid(
+        InputRetryHandler.retryUntilValid(
                 InputView::readBonusNumber,
                 builder::setBonusNumber);
 

@@ -1,13 +1,14 @@
-package lotto.view;
+package lotto.util;
 
 import static lotto.validator.ErrorMessage.UTILITY_CLASS_INSTANTIATION_NOT_ALLOWED;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
+import lotto.view.OutputView;
 
-public class InputHandler {
+public class InputRetryHandler {
 
-    private InputHandler() {
+    private InputRetryHandler() {
         throw new UnsupportedOperationException(UTILITY_CLASS_INSTANTIATION_NOT_ALLOWED.getMessage());
     }
 
