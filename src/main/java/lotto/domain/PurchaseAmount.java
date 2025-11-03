@@ -4,13 +4,12 @@ import lotto.validator.ErrorMessage;
 
 public record PurchaseAmount(long value) {
 
-    public PurchaseAmount(long value) {
+    public PurchaseAmount {
         validatePositive(value);
-        validateUnit(value);
-        this.value = value;
+        validateDividedUp(value);
     }
 
-    private static void validateUnit(long amount) {
+    private static void validateDividedUp(long amount) {
         if (amount % Lotto.PRICE != 0) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_UNIT.getMessage(Lotto.PRICE));
         }
