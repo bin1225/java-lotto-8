@@ -46,7 +46,7 @@ public class OutputView {
     private static void printWinningStatistics(TotalWinningResult totalWinningResult) {
         Map<Rank, Integer> stats = totalWinningResult.getWinningStatistics();
 
-        for (Rank rank : Rank.values()) {
+        for (Rank rank : Rank.reversedIterable()) {
             if (rank == Rank.MISS) {
                 continue; // 꽝은 통계에 제외
             }

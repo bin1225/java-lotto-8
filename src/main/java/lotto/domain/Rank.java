@@ -1,5 +1,9 @@
 package lotto.domain;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public enum Rank {
     FIRST(6, false, 2_000_000_000),
     SECOND(5, true, 30_000_000),
@@ -47,5 +51,14 @@ public enum Rank {
             return FIFTH;
         }
         return MISS;
+    }
+
+    /**
+     * Rank를 선언된 순서의 역순으로 반환한다.
+     */
+    public static Iterable<Rank> reversedIterable() {
+        List<Rank> list = Arrays.asList(values());
+        Collections.reverse(list);
+        return list;
     }
 }
