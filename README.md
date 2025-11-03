@@ -5,7 +5,7 @@
 구매 금액만큼 로또를 발행하고, 당첨 번호와 비교하여 당첨 결과 및 수익률을 계산합니다.
 
 ### 애플리케이션 흐름도
-<img src="lotto_application_architecture.png" alt="사용자 작동 흐름" width="60%">
+<img src="lotto_application_architecture.png" alt="사용자 작동 흐름">
 
 ## 주요 기능
 - 로또 자동 발행 (1,000원당 1장)
