@@ -42,7 +42,7 @@ class WinningNumberTest {
                 .setBonusNumber(bonus)
                 .build())
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ErrorMessage.INVALID_NUMBER_COUNT.getMessage(Lotto.SIZE));
+                .hasMessageContaining(ErrorMessage.INVALID_WINNING_NUMBER_COUNT.getMessage(Lotto.SIZE));
     }
 
     @Test

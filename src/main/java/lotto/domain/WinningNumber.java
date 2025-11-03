@@ -2,7 +2,7 @@ package lotto.domain;
 
 import static lotto.validator.ErrorMessage.DUPLICATE_BONUS_NUMBER;
 import static lotto.validator.ErrorMessage.DUPLICATE_WINNING_NUMBER;
-import static lotto.validator.ErrorMessage.INVALID_NUMBER_COUNT;
+import static lotto.validator.ErrorMessage.INVALID_WINNING_NUMBER_COUNT;
 import static lotto.validator.ErrorMessage.INVALID_NUMBER_RANGE;
 
 import java.util.HashSet;
@@ -62,7 +62,7 @@ public class WinningNumber {
 
     private static void validateSize(List<Integer> numbers) {
         if (numbers.size() != Lotto.SIZE) {
-            throw new IllegalArgumentException(INVALID_NUMBER_COUNT.getMessage(Lotto.SIZE));
+            throw new IllegalArgumentException(INVALID_WINNING_NUMBER_COUNT.getMessage(Lotto.SIZE));
         }
     }
 

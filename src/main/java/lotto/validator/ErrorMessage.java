@@ -14,12 +14,16 @@ public enum ErrorMessage {
     OUT_OF_RANGE("입력값이 허용 범위를 벗어났습니다. (%d ~ %d)"),
 
     //winningNumber
-    INVALID_NUMBER_COUNT("당첨 번호는 %d개 입력해주세요."),
+    INVALID_WINNING_NUMBER_COUNT("당첨 번호는 %d개 입력해주세요."),
     INVALID_NUMBER_RANGE("당첨 번호는 %d부터 %d 사이의 숫자여야 합니다."),
     DUPLICATE_WINNING_NUMBER("당첨 번호에 중복된 숫자가 포함되어 있습니다."),
     DUPLICATE_BONUS_NUMBER("보너스 번호는 당첨 번호와 중복될 수 없습니다."),
     WINNING_NUMBER_NOT_SET("먼저 당첨 번호를 입력해야 합니다."),
-    INCOMPLETE_WINNING_NUMBER("당첨 번호와 보너스 번호가 모두 필요합니다.");
+    INCOMPLETE_WINNING_NUMBER("당첨 번호와 보너스 번호가 모두 필요합니다."),
+
+    //lotto
+    INVALID_LOTTO_NUMBER_COUNT("로또 번호는 %d개 여야 합니다."),
+    DUPLICATE_LOTTO_NUMBER("로또 번호는 중복될 수 없습니다.");
 
     private static final String PREFIX = "[ERROR] ";
     private final String message;
